@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Claus-Peter Käpplinger"
-      user-mail-address "clausi9860@gmail.com")
+      user-mail-address "claus-peter@kaepplinger.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -53,41 +53,19 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-
-;; init noob mode
 (menu-bar-mode 1)
-;; set org-gcal, so I can read my calender inside Org-Mode PogU
-;; TODO maybe get the secret from somewhere safe like pass or gpg2?
 (setq org-gcal-client-id "904616252436-udafcnvh85t8c0mbrtb6hoc54ucobo2t.apps.googleusercontent.com"
       org-gcal-client-secret "2-tRSYvwOzpYD8kVjCIXK2dH"
       org-gcal-fetch-file-alist '(("clausi9860@gmail.com" . "~/Dropbox/org/schedule.org"))
                                  )
 
-;; TODO whats the difference between this
+
 (setq org-agenda-directory "~/Dropbox/org/")
-;; and this
 (setq org-agenda-files (directory-files-recursively "~/Dropbox/org/" "\.org$"))
-;; initalize org-clock-budget after org-clock is loaded
 (use-package! org-clock-budget
   :after (org-clock)
   )
-;; org-roam dir
-(setq org-roam-directory "~/Dropbox/org/roam")
-;; initalize org trello after org mode TODO is this needed?
-(use-package! org-trello
-  :after (org-mode)
-  )
-;; set org-refile targets to also go to other files
+
 (setq org-refile-targets
       '((nil :maxlevel . 3)
         (org-agenda-files :maxlevel . 3)))
-;; set deft to my org directory TODO how do i fucking use a variable for this
-(setq deft-directory "~/Dropbox/org")
-;; msmtp config so it automatically chooses the right account from the From: field
-(setq sendmail-program "/usr/bin/msmtp"
-      send-mail-function 'smtpmail-send-it
-      message-sendmail-f-is-evil t
-      message-sendmail-extra-arguments '("--read-envelope-from")
-      message-send-mail-function 'message-send-mail-with-sendmail)
-;; config notmuch to use mbsync
-(setq +notmuch-sync-backend 'mbsync)
