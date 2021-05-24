@@ -17,7 +17,7 @@
 (doom! :input
        ;;chinese
        ;;japanese
-       ;;layout            ; auie,ctsrnm is the superior home row
+       layout            ; auie,ctsrnm is the superior home row
 
        :completion
        company           ; the ultimate code completion backend
@@ -52,15 +52,15 @@
        zen               ; distraction-free coding or writing
 
        :editor
-       (evil +everywhere); come to the dark side, we have cookies
+       evil +everywhere; come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
        fold              ; (nigh) universal code folding
        (format +onsave)  ; automated prettiness
        ;;god               ; run Emacs commands without modifier keys
        ;;lispy             ; vim for lisp, for people who don't like vim
        multiple-cursors  ; editing in many places at once
-       ;;objed             ; text object editing for the innocent
-       ;;parinfer          ; turn lisp into python, sort of
+       objed             ; text object editing for the innocent
+       parinfer          ; turn lisp into python, sort of
        rotate-text       ; cycle region at point between text candidates
        snippets          ; my elves. They type so I don't have to
        word-wrap         ; soft wrapping with language-aware indent
@@ -88,7 +88,7 @@
        debugger          ; FIXME stepping through code, to help you add bugs
        ;;direnv
        docker
-       ;;editorconfig      ; let someone else argue about tabs vs spaces
+       editorconfig      ; let someone else argue about tabs vs spaces
        ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)     ; run code, run (also, repls)
        gist              ; interacting with github gists
@@ -196,7 +196,7 @@
        yaml              ; JSON, but readable
 
        :email
-       (mu4e +gmail)
+       ;;(mu4e +gmail)
        notmuch
        ;;(wanderlust +gmail)
 
@@ -208,4 +208,5 @@
 
        :config
        ;;literate
-       (default +bindings +smartparens))
+       (default +bindings +smartparens)
+

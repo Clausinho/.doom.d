@@ -18,12 +18,13 @@
 (package! gnorb)
 (package! ebdb-gnorb)
 (package! ivy-bibtex)
-(package! org-gcal)
+;; (package! org-gcal) might be included in dooms calendar module
 (package! org-clock-budget
   :recipe (:host github :repo "Fuco1/org-clock-budget")
   )
 (package! org-clock-convenience)
 (package! counsel-org-clock)
+(package! org-trello)
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
 ;; https://github.com/raxod502/straight.el#the-recipe-format
