@@ -64,7 +64,7 @@
                                  )
 
 ;; TODO whats the difference between this
-(setq org-agenda-directory "~/Dropbox/org/")
+(setq org-agenda-directory org-directory)
 ;; and this
 (setq org-agenda-files (directory-files-recursively "~/Dropbox/org/" "\.org$"))
 ;; initalize org-clock-budget after org-clock is loaded
@@ -84,10 +84,10 @@
 ;; set deft to my org directory TODO how do i fucking use a variable for this
 (setq deft-directory "~/Dropbox/org")
 ;; msmtp config so it automatically chooses the right account from the From: field
-(setq sendmail-program "/usr/bin/msmtp"
-      send-mail-function 'smtpmail-send-it
-      message-sendmail-f-is-evil t
-      message-sendmail-extra-arguments '("--read-envelope-from")
-      message-send-mail-function 'message-send-mail-with-sendmail)
+;;(setq sendmail-program "/usr/bin/msmtp"
+;;      send-mail-function 'smtpmail-send-it
+;;      message-sendmail-f-is-evil t
+;;      message-sendmail-extra-arguments '("--read-envelope-from")
+;;      message-send-mail-function 'message-send-mail-with-sendmail)
 ;; config notmuch to use mbsync
-(setq +notmuch-sync-backend 'mbsync)
+;;(setq +notmuch-sync-backend 'mbsync)

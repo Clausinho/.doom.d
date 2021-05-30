@@ -7,24 +7,34 @@
 
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
-;(package! some-package)
-;
-;
-(package! telega)
-(package! pdf-tools)
-(package! org-vcard)
-(package! emacs-w3m)
-(package! ebdb)
-(package! gnorb)
-(package! ebdb-gnorb)
-(package! ivy-bibtex)
+;(package! some-package);
+
+;;(package! telega)
+;; included in pdf module of doom
+;;(package! pdf-tools)
+
+;;(package! org-vcard)
+;;(package! emacs-w3m)
+;;(package! ebdb)
+;;(package! gnorb)
+;;(package! ebdb-gnorb)
+
+;; included in biblio module of doom
+;;(package! ivy-bibtex)
 ;; (package! org-gcal) might be included in dooms calendar module
+
+;; budget my fucking time
 (package! org-clock-budget
   :recipe (:host github :repo "Fuco1/org-clock-budget")
   )
-(package! org-clock-convenience)
+;; TODO check out this package more
+;;(package! org-clock-convenience)
+;; clock in with counsel
 (package! counsel-org-clock)
+;; add support for trello TODO check how to config
 (package! org-trello)
+;; drill is anki for org
+(package! org-drill)
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
 ;; https://github.com/raxod502/straight.el#the-recipe-format
