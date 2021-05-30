@@ -30,8 +30,8 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Dropbox/org")
-
+(use-package! org
+:init (setq org-directory "~/Dropbox/org"))
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
@@ -58,15 +58,24 @@
 (menu-bar-mode 1)
 ;; set org-gcal, so I can read my calender inside Org-Mode PogU
 ;; TODO maybe get the secret from somewhere safe like pass or gpg2?
-(setq org-gcal-client-id "904616252436-udafcnvh85t8c0mbrtb6hoc54ucobo2t.apps.googleusercontent.com"
-      org-gcal-client-secret "2-tRSYvwOzpYD8kVjCIXK2dH"
-      org-gcal-fetch-file-alist '(("clausi9860@gmail.com" . "~/Dropbox/org/schedule.org"))
-                                 )
+;; org-gcal sync
+;; ref https://cestlaz.github.io/posts/using-emacs-26-gcal/
 
-;; TODO whats the difference between this
-(setq org-agenda-directory org-directory)
-;; and this
-(setq org-agenda-files (directory-files-recursively "~/Dropbox/org/" "\.org$"))
+(require 'org-gcal)
+
+;; Storing my creds in a secret file so I don't commit them here.
+(require 'json)
+(use-package! org-gcal
+:init (defun get-gcal-config-value (key)
+  "Return the value of the json file gcal_secret for key"
+  (cdr (assoc key (json-read-file "~/.config/doom/gcal-secret.json")))
+  )
+:config (setq org-gcal-client-id (get-gcal-config-value 'org-gcal-client-id)
+      org-gcal-client-secret (get-gcal-config-value 'org-gcal-client-secret)
+      org-gcal-fetch-file-alist '((get-gcal-config-value 'org-gcal-email . "~/Dropbox/org/schedule.org"))
+                                 ))
+;; now set the org-files
+(setq org-agenda-files (directory-files-recursively "~/Dropbox/org/" "^[^()]*org$"))
 ;; initalize org-clock-budget after org-clock is loaded
 (use-package! org-clock-budget
   :after (org-clock)
