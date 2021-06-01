@@ -61,7 +61,7 @@
 ;; org-gcal sync
 ;; ref https://cestlaz.github.io/posts/using-emacs-26-gcal/
 
-(require 'org-gcal)
+;;(require 'org-gcal)
 
 ;; Storing my creds in a secret file so I don't commit them here.
 (require 'json)
@@ -72,7 +72,7 @@
   )
 :config (setq org-gcal-client-id (get-gcal-config-value 'org-gcal-client-id)
       org-gcal-client-secret (get-gcal-config-value 'org-gcal-client-secret)
-      org-gcal-fetch-file-alist '((get-gcal-config-value 'org-gcal-email . "~/Dropbox/org/schedule.org"))
+      org-gcal-fetch-file-alist '(((get-gcal-config-value 'org-gcal-email) . "~/Dropbox/org/schedule.org"))
                                  ))
 ;; now set the org-files
 (setq org-agenda-files (directory-files-recursively "~/Dropbox/org/" "^[^()]*org$"))
