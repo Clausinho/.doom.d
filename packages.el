@@ -35,7 +35,27 @@
 (package! org-trello)
 ;; drill is anki for org
 (package! org-drill)
-;; To install a package directly from a remote git repo, you must specify a
+;; super-agenda can group items
+(package! org-super-agenda)
+
+;; query language for org mode
+(package! org-ql)
+;; web archiver
+(package! org-board)
+;; more snippets more fun
+(package! yasnippet-snippets)
+;; getting academic citations from evil google
+(package! gscholar-bibtex)
+;; note taking scripts
+(package! vulpea
+  :recipe (:host github
+           :repo "d12frosted/vulpea")
+  )
+;; google contact integration maybe?
+(package! google-contacts)
+;; vdir is like maildir but for contacts and calendars
+(package! vdirel)
+  ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
 ;; https://github.com/raxod502/straight.el#the-recipe-format
 ;(package! another-package
