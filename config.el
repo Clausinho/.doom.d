@@ -84,10 +84,12 @@
 ;; set deft to my org directory TODO how do i fucking use a variable for this
 (setq deft-directory "~/Dropbox/org")
 ;; msmtp config so it automatically chooses the right account from the From: field
-;;(setq sendmail-program "/usr/bin/msmtp"
-;;      send-mail-function 'smtpmail-send-it
-;;      message-sendmail-f-is-evil t
-;;      message-sendmail-extra-arguments '("--read-envelope-from")
-;;      message-send-mail-function 'message-send-mail-with-sendmail)
+(setq sendmail-program "/usr/bin/msmtp"
+      send-mail-function 'smtpmail-send-it
+      message-sendmail-f-is-evil t
+      message-sendmail-extra-arguments '("--read-envelope-from")
+      message-send-mail-function 'message-send-mail-with-sendmail)
 ;; config notmuch to use mbsync
-;;(setq +notmuch-sync-backend 'mbsync)
+(setq +notmuch-sync-backend 'mbsync)
+;;tell org mode to ask me why I reschedule stuff
+(setq org-log-reschedule 'note)
